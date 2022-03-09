@@ -1,6 +1,6 @@
 {
-  "title": "Custom UI",
-  "geoh5": "C:/Users/dominiquef/Desktop/Import_PLY_DXF.ui.geoh5",
+  "title": "Import PLY, DXF",
+  "geoh5": "",
   "run_command": "mesh_convert_to_geoh5py_uijson",
   "monitoring_directory": "",
   "conda_environment": "base",
@@ -18,7 +18,7 @@
     ],
     "main": true,
     "label": "File choices",
-    "value": "D:/OneDrive - mirageoscience/Projects/R&D/gempy/t20-gostin/FORGE_3D_gravity/DensityModel_Modified_Top_Granite/UtahFORGE_2_Modified_Top_Granite_Surface.dxf;D:/OneDrive - mirageoscience/Projects/R&D/gempy/t20-gostin/FORGE_3D_gravity/DensityModel_Modified_Top_Granite/UtahFORGE_2_Modified_Top_Granite_Surface_2.dxf",
+    "value": "",
     "enabled": true
   },
   "workspace_geoh5": ""
