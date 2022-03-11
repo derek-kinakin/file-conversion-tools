@@ -1,0 +1,25 @@
+{
+  "title": "Import PLY, DXF",
+  "geoh5": "",
+  "run_command": "mesh_convert_to_geoh5py_uijson",
+  "monitoring_directory": "",
+  "conda_environment": "base",
+  "conda_environment_boolean": true,
+  "workspace": "",
+  "file_choice": {
+    "fileMulti": true,
+    "fileDescription": [
+      "Autocad",
+      "Polygon File Format"
+    ],
+    "fileType": [
+      "dxf",
+      "ply"
+    ],
+    "main": true,
+    "label": "File choices",
+    "value": "",
+    "enabled": true
+  },
+  "workspace_geoh5": ""
+}
