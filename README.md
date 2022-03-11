@@ -1,2 +1,3 @@
 # file-conversion-tools
-Tools to convert between various file formats
+
+A collection of tools/scripts to convert between various file formats. Your data should never be trapped!
