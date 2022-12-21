@@ -32,8 +32,8 @@ from geoh5py.objects import Surface
 
 # Globals
 MODE = "single"  # batch or single
-INFOLDER = r"C:\Users\dkinakin\Desktop\OT GI data\Pit designs\surfs\big"  # for batch mode
-INFILE = r"C:\Users\dkinakin\Desktop\OT GI data\Pit designs\surfs\small\GSDC20_ultpit_v1.0_surf.dxf"  # for single file mode
+INFOLDER = r"C:\Users\dkinakin\some_folder"  # for batch mode
+INFILE = r"C:\Users\dkinakin\some_file.dxf"  # for single file mode
 
 # Functions
 def file_list(fld_pth):
