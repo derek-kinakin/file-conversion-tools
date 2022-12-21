@@ -21,8 +21,8 @@ from geoh5py.workspace import Workspace
 
 # Globals
 MODE = "single"  # batch or single
-INFOLDER = r"C:\Users\dkinakin\Desktop\OT GI data\Pit designs\surfs\small"  # for batch mode
-INFILE = r"C:\Users\dkinakin\Desktop\OT GI data\Pit designs\surfs\small\P5a_v4.4_surf.geoh5"  # for single file mode
+INFOLDER = r"C:\Users\dkinakin\some_folder"  # for batch mode
+INFILE = r"C:\Users\dkinakin\some_file.geoh5"  # for single file mode
 
 # Functions
 def file_list(fld_pth):
