@@ -32,8 +32,8 @@ from geoh5py.objects import Surface
 
 # Globals
 MODE = "single"  # batch or single
-INFOLDER = r"C:\Users\dkinakin\Desktop\OT GI data\Pit designs\surfs\big"  # for batch mode
-INFILE = r"C:\Users\dkinakin\Desktop\OT GI data\Pit designs\surfs\small\GSDC20_ultpit_v1.0_surf.dxf"  # for single file mode
+INFOLDER = r"C:\Users\dkinakin\Desktop\some_folder"  # for batch mode
+INFILE = r"C:\Users\dkinakin\Desktop\some_file.ply"  # for single file mode
 
 # Functions
 def file_list(fld_pth):
@@ -117,7 +117,7 @@ def create_triangle_array(fc):
     return trngls
 
 
-def dxf_triangle_list_to_pv_mesh(trngl_vrtx_lst):
+def dxf_triangle_list_to_pv_mesh(trngl_vrtx_lst, clean=False):
     """Extracts 3DFACEs from a DXF file object in memory
 
     Args:
@@ -132,7 +132,28 @@ def dxf_triangle_list_to_pv_mesh(trngl_vrtx_lst):
     vertices = triangle_array.reshape((-1, 3))
     faces = np.arange(len(vertices)).reshape((-1, 3))
     msh = pv.make_tri_mesh(vertices, faces)
-    return msh
+    if clean:
+        msh_out = msh.clean()
+    else:
+        msh_out = msh
+    return msh_out
+
+
+def dxf_tri_mesh_to_pyvista_mesh(dxf_pth):
+    """Convert triangular mesh in DXF format to PyVista PolyData mesh object.
+
+    Args:
+        dxf_pth (Path object): Path to tringular mesh in DXF format
+
+    Returns:
+        mesh (PyVista PolyData): Triangular mesh object
+    """
+    
+    doc = read_dxf_file(dxf_pth)
+    face_list = extract_dxf_3dfaces(doc)
+    triangle_vertex_list = [create_triangle_array(f) for f in face_list]
+    mesh = dxf_triangle_list_to_pv_mesh(triangle_vertex_list)
+    return mesh
 
 
 def create_workspace_file(flpth):
@@ -169,23 +190,6 @@ def pv_mesh_to_geoh5_surface(pvmsh, gh5wkspc, msh_nm):
     clls = pvmsh.faces.reshape((pvmsh.n_faces, 4))[:, 1:]  
     srfc = Surface.create(gh5wkspc, vertices=vrts, cells=clls, name=msh_nm)
     return srfc
-
-
-def dxf_tri_mesh_to_pyvista_mesh(dxf_pth):
-    """Convert triangular mesh in DXF format to PyVista PolyData mesh object.
-
-    Args:
-        dxf_pth (Path object): Path to tringular mesh in DXF format
-
-    Returns:
-        mesh (PyVista PolyData): Triangular mesh object
-    """
-    
-    doc = read_dxf_file(dxf_pth)
-    face_list = extract_dxf_3dfaces(doc)
-    triangle_vertex_list = [create_triangle_array(f) for f in face_list]
-    mesh = dxf_triangle_list_to_pv_mesh(triangle_vertex_list)
-    return mesh
 
 
 def mesh_file_to_geoh5_file(msh_pth):
