@@ -1,0 +1,41 @@
+# Block model specification file for create_geoh5_block_model_from_xyz_file.py script
+
+title = "Block model specifications"
+
+[setup]
+name = "My_block_model"
+path = 'C:\Users\dkinakin\Desktop\client_centroids_and_data.csv'
+x_coord = "EAST"
+y_coord = "NORTH"
+z_coord = "ELEV"
+
+[parameters]
+float_params = ["RMR76", "RQD", "FES"]
+integer_params = ["LITH", "ALTERATION", "DOMAINS"]
+
+[mapping]
+# These are mappings of integer values to reference values for the block model
+# Additional mappings can be added as required to this section and the list of integer_params
+[mapping.LITH]
+1 = "CARB"
+2 = "SILT"
+3 = "VOL"
+4 = "QMD"
+5 = "SED"
+6 = "TUFF"
+
+[mapping.ALTERATION]
+1 = "AAA"
+2 = "PHY"
+3 = "PRO"
+4 = "PTS"
+
+[mapping.DOMAINS]
+1 = "Central"
+2 = "West"
+3 = "East"
+4 = "Joker"
+5 = "Sizzle"
+6 = "North"
+7 = "South"
+8 = "Rainbow"
